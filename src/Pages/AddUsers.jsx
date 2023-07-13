@@ -42,9 +42,9 @@ const AddUsers = () => {
     const number = data.phoneNumber;
     console.log(data);
     axios
-    .put(`http://localhost:5000/update/${id}`, { name, email, number })
+    .put(`http://localhost:5000/user/${id}`, { name, email, number })
     .then((res) => {
-      dispatch(newUpdatedUser(res.data));
+      dispatch(updateUser(res.data));
       navigate("/");
     })
     .catch((err) => console.log(err));

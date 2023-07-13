@@ -1,6 +1,4 @@
 import { useEffect } from "react";
-import { GrUpdate } from "react-icons/gr";
-import { MdDelete } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteUser, getUser } from "../redux/userSlice";
@@ -44,11 +42,11 @@ const Users = () => {
       </div>
 
       <h3 className="text-2xl font-semibold my-4">
-        {/* Total users: {users.length} */}
+      
       </h3>
       <div className="overflow-x-auto">
         <table className="table table-zebra w-full">
-          {/* head */}
+
           <thead className="bg-red-500 text-white">
             <tr>
               <th>ID</th>
