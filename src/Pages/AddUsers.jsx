@@ -241,7 +241,7 @@ const AddUsers = () => {
     
        <button
        type="submit"
-       className="py-2 px-4 bg-indigo-500 text-white rounded-md hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+       className="py-2 w-full px-4 bg-indigo-500 text-white rounded-md hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500"
      >
        Submit
      </button>
