@@ -1,10 +1,11 @@
 import { useEffect } from "react";
-import { GrUpdate, GrView } from "react-icons/gr";
+import { GrUpdate } from "react-icons/gr";
 import { MdDelete } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteUser, getUser } from '../redux/userSlice'
 import axios from "axios";
+
 
  
 
@@ -32,31 +33,12 @@ const Users = () => {
 
 
     const handleDelete = (id) => {
-    Swal.fire({
-      title: "Are you sure?",
-      text: "You won't be able to revert this!",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        fetch(`https://server-for-toy.vercel.app/order/${id}`, {
-          method: "DELETE",
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            if (data.deletedCount > 0) {
-              Swal.fire("Deleted!", "Your order has been deleted.", "success");
-
-              const remaining = orders.filter((order) => order._id !== id);
-              setOrders(remaining);
-            }
-          });
-      }
-    });
-  };
+      axios.delete(`http://http://localhost:5000/delete/${id}`)
+      .then(res => {
+          dispatch(deleteUser({id}))
+      }).catch(err => console.log(err))
+  }
+  
 
   return (
     <div className="w-full">
@@ -108,7 +90,7 @@ const Users = () => {
 
                 <td>
                   <button
-                    onClick={() => handleDelete(user)}
+                    onClick={() => handleDelete(user.id)}
                     className="btn btn-circle btn-outline btn-sm bg-red-500"
                   >
                     <MdDelete className="text-white" />

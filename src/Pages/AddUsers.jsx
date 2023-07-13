@@ -37,7 +37,7 @@ const AddUsers = () => {
 
   const OnUpdateSubmit = (data)=>{
     const name = data.name;
-    const id = data.id;
+    const id = parseInt(data.id);
     const email = data.email;
     const number = data.phoneNumber;
     console.log(data);
